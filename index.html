@@ -2,44 +2,101 @@
 <html>
 <head>
 	<title>Countdown</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style.css?v=1.1.1">
 	<link rel="stylesheet" type="text/css" href="src/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="src/font-awesome.min.css">
+    <link rel="stylesheet" href="src/jquery-bg-slideshow.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="src/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="src/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="functions.js"></script>
+    <script src="src/jquery-bg-slideshow.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(".bg").bgSlideShow({
+                current : 0,
+                randomize : false,
+                images : [ "src/reloj-2.jpg", "src/reloj-3.jpg", "src/reloj-4.jpg", "src/reloj-5.jpg", "src/reloj-6.jpg", "src/reloj-1.jpg" ],
+                initialBackground : 'src/reloj-1.jpg',
+                transitionDelay:3500
+            });
+        });
+    </script>
+    <style type="text/css">
+        body {
+          text-align: center;
+          height: 100%;
+          align-items: center;
+          display: flex;
+          margin: 0;
+          background-color: transparent !important;
+        }
+
+        .jquery-bg-slideshow-wrap-bg-element {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+        }
+
+        .bg {
+          height: 100%;
+          width: 100%;
+          align-items: center;
+          justify-content: center;
+          display: flex;
+          margin: 0;
+          background-size: cover;
+          background-position: center;
+        }
+
+        .jquery-bg-slideshow-list-control-element{
+            display: none;
+        }
+
+        .overlay{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #0000008f;
+            z-index: 0;
+        }
+
+        .capa-main{
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
-	<div class="container py-5 back-image">
-    <!-- For demo purpose-->
-    <header class="text-center">
-        <h1 class="display-4 text-white  font-weight-bold mb-4">Cuenta Regresiva</h1>
-    </header>
+	<div class="bg">
+    <div class="overlay"></div>
+        <div class="capa-main text-white text-center mb-5">
+            <h1 class="display-4 text-white  font-weight-bold mb-4">Cuenta Regresiva</h1>
+            <p class="mb-0 font-weight-bold text-uppercase">El evento inicia dentro de:</p>
+            <div id="clock-c" class="countdown py-4"></div>
 
-    <div class="py-5">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <!-- Countdown 4-->
-                <div class=" text-white text-center mb-5">
-                    <p class="mb-0 font-weight-bold text-uppercase">El evento inicia dentro de:</p>
-                    <div id="clock-c" class="countdown py-4"></div>
+            <!-- Call to actions -->
+            <ul class="list-inline ">
+                <li class="list-inline-item pt-2">
+                    <button id="btn-pause" type="button" class="btn btn-demo text-white "><i class="glyphicon glyphicon-repeat"></i>Pausa</button>
+                </li>
+                <li class="list-inline-item pt-2">
+                    <button id="btn-resume" type="button" class="btn btn-demo text-white "><i class="glyphicon glyphicon-repeat"></i>Reanudar</button>
+                </li>
+            </ul>
 
-                    <!-- Call to actions -->
-                    <ul class="list-inline ">
-                        <li class="list-inline-item pt-2">
-                            <button id="btn-pause" type="button" class="btn btn-demo text-white "><i class="glyphicon glyphicon-repeat"></i>Pausa</button>
-                        </li>
-                        <li class="list-inline-item pt-2">
-                            <button id="btn-resume" type="button" class="btn btn-demo text-white "><i class="glyphicon glyphicon-repeat"></i>Reanudar</button>
-                        </li>
-                    </ul>
-
-                </div>
-
-            </div>
         </div>
+
     </div>
-</div>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+</script>
 </body>
-<script type="text/javascript" src="src/jquery-3.3.1.slim.min.js"></script>
-<script type="text/javascript" src="src/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="src/jquery.countdown.min.js"></script>
-<script type="text/javascript" src="functions.js"></script>
+
 </html>
